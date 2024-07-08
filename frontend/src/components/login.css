@@ -1,0 +1,63 @@
+/* Center the login container on the page */
+.login-container {
+    width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    background-color: #f9f9f9;
+  }
+  
+  /* Style the input fields */
+  .input-field {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  
+  /* Style the login button */
+  .login-button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .login-button:hover {
+    background-color: #45a049;
+  }
+  
+  /* Style the message paragraph */
+  .message {
+    margin-top: 10px;
+    color: red;
+  }
+  
+  /* Style the signup link */
+  .signup-link {
+    color: #007BFF;
+    cursor: pointer;
+    text-decoration: underline;
+  }
+  
+  .signup-link:hover {
+    color: #0056b3;
+  }
+  
+  /* Additional styling for object-id paragraph */
+  #object-id {
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #333;
+  }
+  

@@ -1,0 +1,21 @@
+
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+  background: linear-gradient(to bottom, #ff9a9e 0%, #fad0c4 100%);
+  border-radius: 5px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  color: #fff;
+  margin: 20px auto;
+  max-width: 500px;
+  padding: 20px;
+  text-align: center;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
