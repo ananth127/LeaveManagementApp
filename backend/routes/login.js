@@ -4,7 +4,7 @@ const router = express.Router();
 
 const User = require('../models/leave'); // Assuming you have a User model
 
-router.post('/logina', async (req, res) => {
+router.post('/login', async (req, res) => {
   const { username, password } = req.body;
   
   try {

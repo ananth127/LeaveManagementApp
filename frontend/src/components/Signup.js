@@ -16,7 +16,7 @@ function Signup() {
   const handleSignup = async () => {
     if (navigator.onLine) {
     try {
-      const response = await fetch(SIGNUP_1_URL, {
+      const response = await fetch("http://leavemanagementapp.onrender.com/signup", {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
