@@ -23,7 +23,7 @@ const Leavemanagement = () => {
     if (navigator.onLine) {
     try {
       console.log(id,leaveType,leaveDays);
-      const response = await fetch("http://leavemanagementapp.onrender.com/leave/", {
+      const response = await fetch("https://leavemanagementapp.onrender.com/leave/", {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -76,7 +76,7 @@ const Leavemanagement = () => {
   }
   const fetchUsers = async () => {
     try {
-      const response = await fetch(`http://leavemanagementapp.onrender.com/leave/${id}`);
+      const response = await fetch(`https://leavemanagementapp.onrender.com/leave/${id}`);
       const data = await response.json();
       if (response.ok) {
         if (leaveType === "casual") {
@@ -130,7 +130,7 @@ const Leavemanagement = () => {
   };
   const updateleave = async () => {
     try {
-      const response = await fetch(`http://leavemanagementapp.onrender.com/leave/${id}`);
+      const response = await fetch(`https://leavemanagementapp.onrender.com/leave/${id}`);
       const data = await response.json();
       if (response.ok) {
         // setUsers(data.leavebalance);
