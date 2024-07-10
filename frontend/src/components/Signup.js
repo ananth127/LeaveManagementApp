@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import "./login.css";
 import Online_status from './Online_status';
-
+import { SIGNUP_1_URL } from '../config';
 function Signup() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -16,7 +16,7 @@ function Signup() {
   const handleSignup = async () => {
     if (navigator.onLine) {
     try {
-      const response = await fetch(`${process.env.signup_1}`, {
+      const response = await fetch(SIGNUP_1_URL, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

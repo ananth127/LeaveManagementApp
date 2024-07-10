@@ -1,7 +1,7 @@
 import React, { useState} from "react";
 import './Leavemanagement.css'
 import { useLocation } from "react-router-dom";
-
+import { LEAVE_1_URL,LEAVE_2_URL } from "../config";
 import Online_status from './Online_status';
 const Leavemanagement = () => {
   const location = useLocation();
@@ -23,7 +23,7 @@ const Leavemanagement = () => {
     if (navigator.onLine) {
     try {
       console.log(id,leaveType,leaveDays);
-      const response = await fetch(`${process.env.leave_1}`, {
+      const response = await fetch(LEAVE_2_URL, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -76,7 +76,7 @@ const Leavemanagement = () => {
   }
   const fetchUsers = async () => {
     try {
-      const response = await fetch(`${process.env.leave_2}`);
+      const response = await fetch(LEAVE_1_URL`${id}`);
       const data = await response.json();
       if (response.ok) {
         if (leaveType === "casual") {
@@ -130,7 +130,7 @@ const Leavemanagement = () => {
   };
   const updateleave = async () => {
     try {
-      const response = await fetch(`${process.env.leave_2}`);
+      const response = await fetch(LEAVE_1_URL`${id}`);
       const data = await response.json();
       if (response.ok) {
         // setUsers(data.leavebalance);
