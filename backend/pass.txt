@@ -1,3 +1,0 @@
-69JhZhSYUGeIzioy
-
-mongodb+srv://sample10:<password>@sample-data.trf5ful.mongodb.net/?retryWrites=true&w=majority&appName=sample-data
