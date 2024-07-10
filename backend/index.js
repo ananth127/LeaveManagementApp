@@ -10,7 +10,7 @@ const app = express();
 const port = process.env.PORT || 3001;
 
 // MongoDB connection
-mongoose.connect(process.env.KEY_VAL, {
+mongoose.connect("mongodb+srv://sample10:Ananth12@sample-data.trf5ful.mongodb.net/leavedata", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
