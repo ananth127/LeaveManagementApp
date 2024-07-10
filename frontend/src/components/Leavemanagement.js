@@ -2,6 +2,7 @@ import React, { useState} from "react";
 import './Leavemanagement.css'
 import { useLocation } from "react-router-dom";
 
+import Online_status from './Online_status';
 const Leavemanagement = () => {
   const location = useLocation();
   // const [users, setUsers] = useState();
@@ -19,9 +20,10 @@ const Leavemanagement = () => {
   const handleSignup = async () => {
 
     fetchUsers();
+    if (navigator.onLine) {
     try {
       console.log(id,leaveType,leaveDays);
-      const response = await fetch(`https://leavemanagementapp.onrender.com/leave/`, {
+      const response = await fetch(`${process.env.leave_1}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -53,8 +55,15 @@ const Leavemanagement = () => {
     } catch (error) {
       console.error(error);
     }
+  }else{
+      console.log('Device is offline, cannot perform action.');
+      alert('No internet connection. Action cannot be performed.');
+  
+    }
+      
+    };
+  
 
-  };
   const Change=() =>{
     if (leaveType === "casual") {
       console.log("casual",casual);
@@ -67,7 +76,7 @@ const Leavemanagement = () => {
   }
   const fetchUsers = async () => {
     try {
-      const response = await fetch(`https://leavemanagementapp.onrender.com/leave/${id}`);
+      const response = await fetch(`${process.env.leave_2}`);
       const data = await response.json();
       if (response.ok) {
         if (leaveType === "casual") {
@@ -107,15 +116,21 @@ const Leavemanagement = () => {
   };
 
   const handleSubmit = (event) => {
+    if (navigator.onLine) {
     event.preventDefault();
     //const days = parseInt(leaveDays);
     setLeaveDays("");
     updateleave();
     handleSignup();
+    }else{
+      alert('No internet connection. Action cannot be performed.');
+  
+    }
+      
   };
   const updateleave = async () => {
     try {
-      const response = await fetch(`https://leavemanagementapp.onrender.com/leave/${id}`);
+      const response = await fetch(`${process.env.leave_2}`);
       const data = await response.json();
       if (response.ok) {
         // setUsers(data.leavebalance);
@@ -137,6 +152,8 @@ const Leavemanagement = () => {
   */
 
   return (
+    <>
+    <Online_status/>
     <div className="container">
       <h1>Leave Management System</h1>
       <div className="form-container">
@@ -177,9 +194,10 @@ const Leavemanagement = () => {
 
       </div>
     </div>
+    </>
   );
 //Available {leaveType} Leaves: {leavebalanceData} 
 
-};
+}
 
 export default Leavemanagement;

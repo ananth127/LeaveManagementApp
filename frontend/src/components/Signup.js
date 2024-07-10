@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import "./login.css";
+import Online_status from './Online_status';
 
 function Signup() {
   const [username, setUsername] = useState('');
@@ -13,8 +14,9 @@ function Signup() {
   }
 
   const handleSignup = async () => {
+    if (navigator.onLine) {
     try {
-      const response = await fetch('https://leavemanagementapp.onrender.com/signup', {
+      const response = await fetch(`${process.env.signup_1}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -32,11 +34,16 @@ function Signup() {
     } catch (error) {
       console.error(error);
     }
-  };
+  }else{ alert('No internet connection. Action cannot be performed.');
+  
+    }
+      
+    };
 
   return (
-    
+    <>
     <div class="login-container">
+    <Online_status/>
       <h2>Sign up</h2>
       <input
         type="text"
@@ -52,19 +59,13 @@ function Signup() {
         onChange={(e) => setPassword(e.target.value)}
         class="input-field"
       />
-      <input
-        type="password"
-        placeholder="Password"
-        // value={password}
-        // onChange={(e) => setPassword(e.target.value)}
-        class="input-field"
-      />
       <button onClick={handleSignup} class="login-button">Signup</button>
       <p>{message}</p>
       <br>
       </br>
       <h1 onClick={handleLogin} class="signup-link">Login</h1>
     </div>
+    </>
   );
 }
 
