@@ -21,7 +21,7 @@ const Leavemanagement = () => {
     fetchUsers();
     try {
       console.log(id,leaveType,leaveDays);
-      const response = await fetch('https://leave-management-app-orpin.vercel.app/leave', {
+      const response = await fetch(`https://leave-management-app-orpin.vercel.app/leave/${id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
