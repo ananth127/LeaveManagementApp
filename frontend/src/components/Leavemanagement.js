@@ -67,7 +67,7 @@ const Leavemanagement = () => {
   }
   const fetchUsers = async () => {
     try {
-      const response = await fetch(`http://localhost:3001/leave/${id}`);
+      const response = await fetch(`https://leavemanagementapp.onrender.com/leave/${id}`);
       const data = await response.json();
       if (response.ok) {
         if (leaveType === "casual") {
@@ -115,7 +115,7 @@ const Leavemanagement = () => {
   };
   const updateleave = async () => {
     try {
-      const response = await fetch(`http://localhost:3001/leave/${id}`);
+      const response = await fetch(`https://leavemanagementapp.onrender.com/leave/${id}`);
       const data = await response.json();
       if (response.ok) {
         // setUsers(data.leavebalance);
