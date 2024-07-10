@@ -37,7 +37,7 @@ function Signup() {
   return (
     
     <div class="login-container">
-      <h2>Signup</h2>
+      <h2>Sign up</h2>
       <input
         type="text"
         placeholder="Username"
@@ -50,6 +50,13 @@ function Signup() {
         placeholder="Password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
+        class="input-field"
+      />
+      <input
+        type="password"
+        placeholder="Password"
+        // value={password}
+        // onChange={(e) => setPassword(e.target.value)}
         class="input-field"
       />
       <button onClick={handleSignup} class="login-button">Signup</button>
