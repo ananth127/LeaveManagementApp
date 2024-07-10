@@ -15,7 +15,7 @@ function Login() {
   }
   const handleLogin = async () => {
     try {
-      const response = await fetch('http://localhost:3006/api/logina', {
+      const response = await fetch('http://localhost:3001/api/logina', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
