@@ -45,6 +45,8 @@ function Signup() {
     <div class="login-container">
     <Online_status/>
       <h2>Sign up</h2>
+      <form onSubmit={handleSignup}>
+        
       <input required
         type="text"
         placeholder="Username"
@@ -59,7 +61,8 @@ function Signup() {
         onChange={(e) => setPassword(e.target.value)}
         class="input-field"
       />
-      <button type='submit' onClick={handleSignup} class="login-button">Signup</button>
+      <button type='submit'  class="login-button">Signup</button>
+      </form>
       <p>{message}</p>
       <br>
       </br>

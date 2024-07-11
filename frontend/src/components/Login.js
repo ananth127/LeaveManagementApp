@@ -51,8 +51,9 @@ function Login() {
   <h2>Login</h2>
 
   <p id="object-id">{objectid}</p>
-
-  <input required
+<form onSubmit={handleLogin}> 
+  
+<input required
     type="text"
     placeholder="Username"
     value={username}
@@ -67,8 +68,9 @@ function Login() {
     class="input-field"
   />
 
-  <button type='submit' onClick={handleLogin} class="login-button">Login</button>
+  <button type='submit' class="login-button">Login</button>
   <p class="message">{message}</p>
+</form>
 
   <br />
 
