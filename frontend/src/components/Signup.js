@@ -59,7 +59,7 @@ function Signup() {
         onChange={(e) => setPassword(e.target.value)}
         class="input-field"
       />
-      <button onClick={handleSignup} class="login-button">Signup</button>
+      <button type='submit' onClick={handleSignup} class="login-button">Signup</button>
       <p>{message}</p>
       <br>
       </br>

@@ -67,7 +67,7 @@ function Login() {
     class="input-field"
   />
 
-  <button onClick={handleLogin} class="login-button">Login</button>
+  <button type='submit' onClick={handleLogin} class="login-button">Login</button>
   <p class="message">{message}</p>
 
   <br />
