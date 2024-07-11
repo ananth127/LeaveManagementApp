@@ -15,6 +15,10 @@ function Signup() {
 
   const handleSignup = async () => {
     if (navigator.onLine) {
+      if(username =="" || password==""){
+        setMessage("Enter All Fields !!");
+      }
+      else{
     try {
       const response = await fetch("https://leavemanagementapp.onrender.com/signup", {
         method: 'POST',
@@ -32,8 +36,11 @@ function Signup() {
         setMessage(data.message);
       }
     } catch (error) {
-      console.error(error);
+      if(error){
+        setMessage("Sorry , Technical issues please try again later !!");
+      }
     }
+  }
   }else{ alert('No internet connection. Action cannot be performed.');
   
     }
@@ -45,7 +52,6 @@ function Signup() {
     <div class="login-container">
     <Online_status/>
       <h2>Sign up</h2>
-      <form onSubmit={handleSignup}>
         
       <input required
         type="text"
@@ -61,8 +67,7 @@ function Signup() {
         onChange={(e) => setPassword(e.target.value)}
         class="input-field"
       />
-      <button type='submit'  class="login-button">Signup</button>
-      </form>
+      <button type='submit' onClick={handleSignup}  class="login-button">Signup</button>
       <p>{message}</p>
       <br>
       </br>

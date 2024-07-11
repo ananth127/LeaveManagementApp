@@ -22,7 +22,6 @@ const Leavemanagement = () => {
     fetchUsers();
     if (navigator.onLine) {
     try {
-      console.log(id,leaveType,leaveDays);
       const response = await fetch("https://leavemanagementapp.onrender.com/leave/", {
         method: 'PUT',
         headers: {
@@ -38,11 +37,9 @@ const Leavemanagement = () => {
         setCasual(data.casual);
         setMedical(data.medical);
         if (leaveType === "casual") {
-          console.log("casual",data.casual);
           setLeaveBalanceData(data.casual);
         }
         else if (leaveType === "medical") {
-          console.log("medical 1",data.medical);
           setLeaveBalanceData(data.medical);
         }
         Change();
@@ -53,10 +50,10 @@ const Leavemanagement = () => {
       }
 
     } catch (error) {
-      console.error(error);
+      
+      setMessage("Sorry , Technical issues please try again later !!");
     }
   }else{
-      console.log('Device is offline, cannot perform action.');
       alert('No internet connection. Action cannot be performed.');
   
     }
@@ -66,11 +63,9 @@ const Leavemanagement = () => {
 
   const Change=() =>{
     if (leaveType === "casual") {
-      console.log("casual",casual);
       setLeaveBalanceData(casual);
     }
     else if (leaveType === "medical") {
-      console.log("medical",medical);
       setLeaveBalanceData(medical);
     }
   }
@@ -80,20 +75,19 @@ const Leavemanagement = () => {
       const data = await response.json();
       if (response.ok) {
         if (leaveType === "casual") {
-          console.log("casual",data.casual);
           setLeaveBalanceData(data.casual);
         }
         else if (leaveType === "medical") {
-          console.log("medical 1",data.medical);
           setLeaveBalanceData(data.medical);
         }
         //setData(data);
       } else {
-        console.error('Failed to fetch users:', data.message);
+        setMessage("Sorry ,Failed to fetch users !!");
 
       }
     } catch (error) {
-      console.error('Error during user fetch:', error.message);
+      
+      setMessage("Sorry ,Technical issues please try again later !!");
     }
   };
   const handleLeaveTypeChange = (event) => {
@@ -101,11 +95,9 @@ const Leavemanagement = () => {
     if (event.target.value === "casual") {
       setLeaveBalanceData(casual);
 
-      console.log(event.target.value,casual,leavebalanceData);
     }
     else if (event.target.value === "medical") {
       setLeaveBalanceData(medical);
-      console.log(event.target.value,medical,leavebalanceData);
 
     }
 
@@ -135,11 +127,12 @@ const Leavemanagement = () => {
       if (response.ok) {
         // setUsers(data.leavebalance);
       } else {
-        console.error('Failed to fetch users:', data.message);
+        setMessage("Failed to fetch user !!");
 
       }
     } catch (error) {
-      console.error('Error during user fetch:', error.message);
+      
+      setMessage("Sorry , Technical issues please try again later !!");
     }
   };
   /*const reset = () =>{

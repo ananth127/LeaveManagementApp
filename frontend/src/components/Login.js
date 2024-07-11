@@ -16,6 +16,10 @@ function Login() {
   }
   const handleLogin = async () => {
     if (navigator.onLine) {
+      if(username ==="" || password===""){
+        setMessage("Enter All Fields !!");
+      }
+      else{
     try {
       const response = await fetch("https://leavemanagementapp.onrender.com/api/login", {
         method: 'POST',
@@ -35,15 +39,16 @@ function Login() {
         const data = await response.json();
         setMessage(data.message);
       }
-    } catch (error) {
-      console.error(error);
-    }
-  }else{
-    alert('No internet connection. Action cannot be performed.');
-
+    } catch (error) {if(error){
+    setMessage("Sorry , Technical issues please try again later !!");
   }
-  };
+}
+}
+}else{ alert('No internet connection. Action cannot be performed.');
 
+}
+  
+};
   return (
     <>
     <Online_status/>
@@ -51,7 +56,6 @@ function Login() {
   <h2>Login</h2>
 
   <p id="object-id">{objectid}</p>
-<form onSubmit={handleLogin}> 
   
 <input required
     type="text"
@@ -68,9 +72,8 @@ function Login() {
     class="input-field"
   />
 
-  <button type='submit' class="login-button">Login</button>
+  <button type='submit' onClick={handleLogin} class="login-button">Login</button>
   <p class="message">{message}</p>
-</form>
 
   <br />
 
