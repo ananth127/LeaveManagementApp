@@ -52,14 +52,14 @@ function Login() {
 
   <p id="object-id">{objectid}</p>
 
-  <input
+  <input required
     type="text"
     placeholder="Username"
     value={username}
     onChange={(e) => setUsername(e.target.value)}
     class="input-field"
   />
-  <input
+  <input required
     type="password"
     placeholder="Password"
     value={password}

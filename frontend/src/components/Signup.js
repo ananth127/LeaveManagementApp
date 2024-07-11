@@ -45,14 +45,14 @@ function Signup() {
     <div class="login-container">
     <Online_status/>
       <h2>Sign up</h2>
-      <input
+      <input required
         type="text"
         placeholder="Username"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
         class="input-field"
       />
-      <input
+      <input required
         type="password"
         placeholder="Password"
         value={password}
