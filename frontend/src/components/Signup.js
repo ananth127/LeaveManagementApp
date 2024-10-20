@@ -20,7 +20,7 @@ function Signup() {
       }
       else{
     try {
-      const response = await fetch("https://leavemanagementapp.onrender.com/signup", {
+      const response = await fetch("https://leave-management-app-4kpz.vercel.app/signup", {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
